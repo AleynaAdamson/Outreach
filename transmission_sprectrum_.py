@@ -11,6 +11,7 @@ from ipywidgets import Layout
 
 #simulated spectrum
 def part_1():
+	random.seed(1)
 	noise_level = 0.003
 	
 	# Convert log-abundance (VMR) → feature height (VMR = (Volume of a given gas) / (Total volume of the gas mixture))
@@ -102,6 +103,7 @@ def part_1():
 	return display(layout)
 #different molecules
 def part_2(csv):
+	random.seed(1)
 	noise_level = 0.003
 	
 	# Convert log-abundance (VMR) → feature height (VMR = (Volume of a given gas) / (Total volume of the gas mixture))
