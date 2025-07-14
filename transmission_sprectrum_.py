@@ -53,7 +53,7 @@ def part_1():
         # Log abundance sliders
         sliders = {
             mol: FloatSlider(value=0, min=0, max=1, step=0.1, description=f'{mol}') #VMR:
-            for mol in ['H₂O', 'CH₄', 'CO₂', 'O2', 'Na', 'K', 'SO2', 'CO', 'O3'] #'O2']
+            for mol in ['molecule 1', 'molecule 2', 'molecule 3', 'molecule 4', 'molecule 5', 'molecule 6', 'molecule 7', 'molecule 8', 'molecule 9'] #'O2']
         }
         
         def update_plot(**vals):
@@ -145,7 +145,7 @@ def part_2(csv):
         # Log abundance sliders
         sliders = {
             mol: FloatSlider(value=0, min=0, max=1, step=0.1, description=f'{mol}')
-            for mol in ['H₂O', 'CH₄', 'CO₂', 'O2', 'Na', 'K', 'SO2', 'CO', 'O3'] #'O2']
+            for mol in ['molecule 1', 'molecule 2', 'molecule 3', 'molecule 4', 'molecule 5', 'molecule 6', 'molecule 7', 'molecule 8', 'molecule 9'] #'O2']
         }
         
         def update_plot(**vals):
