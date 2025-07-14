@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 from ipywidgets import FloatLogSlider, HBox, VBox, interactive_output, FloatSlider
 from IPython.display import display, clear_output
 from ipywidgets import Layout
-import random
+#import random
 
 #simulated spectrum
 def part_1():
-	random.seed(1)
+	#random.seed(1)
 	noise_level = 0.003
 	
 	# Convert log-abundance (VMR) → feature height (VMR = (Volume of a given gas) / (Total volume of the gas mixture))
@@ -42,11 +42,11 @@ def part_1():
 	    spectrum_no_noise = np.ones_like(wavelengths)
 	
 	    for mol, log_ab in log_vmr.items():
-	        depth = abundance_to_depth(log_ab, scale=0.08)
-	        for center, sigma, rel in MOLECULES[mol]:
-	            gauss = rel * depth * np.exp(-((wavelengths - center)**2) / (2 * sigma**2))
-	            spectrum    -= gauss
-	            spectrum_no_noise -= gauss
+		depth = abundance_to_depth(log_ab, scale=0.08)
+		for center, sigma, rel in MOLECULES[mol]:
+		    gauss = rel * depth * np.exp(-((wavelengths - center)**2) / (2 * sigma**2))
+		    spectrum    -= gauss
+		    spectrum_no_noise -= gauss
 	
 	    return wavelengths, spectrum, spectrum_no_noise
 	
@@ -59,10 +59,10 @@ def part_1():
 	def update_plot(**vals):
 	    log_vmr = {}
 	    for mol, val in vals.items():
-	        if val == 0:
-	            log_vmr[mol] = -10  # minimum log abundance for zero slider value
-	        else:
-	            log_vmr[mol] = np.log10(val)
+		if val == 0:
+		    log_vmr[mol] = -10  # minimum log abundance for zero slider value
+		else:
+		    log_vmr[mol] = np.log10(val)
 	
 	    wl, spec, spec0 = generate_spectrum(log_vmr)
 	
@@ -71,24 +71,24 @@ def part_1():
 	    plt.figure(figsize=(8, 5))
 	    grad = np.linspace(0, 1, 500).reshape(1, -1)
 	    plt.imshow(grad, extent=[wl.min(), wl.max(), (1-spec).min(), 0.35],
-	               aspect='auto', cmap='nipy_spectral', alpha=0.2)
+		       aspect='auto', cmap='nipy_spectral', alpha=0.2)
 	
 	    '''
 	    for mol, peaks in MOLECULES.items():
-	        for c, sigma, _ in peaks:
-	            if 0.3 < c < 5.0:
-	                color_map = {
-	                    'H₂O': 'blue',
-	                    'CH₄': 'forestgreen',
-	                    'CO₂': 'red',
-	                    'O2': 'darkviolet',
-	                    'Na': 'yellow',
-	                    'K': 'orange',
-	                    'SO2': 'hotpink',
-	                    'CO': 'gray',
-	                    'O3': 'brown'
-	                }
-	                plt.axvspan(c - sigma, c + sigma, alpha=0.2, label=mol, color=color_map[mol])
+		for c, sigma, _ in peaks:
+		    if 0.3 < c < 5.0:
+			color_map = {
+			    'H₂O': 'blue',
+			    'CH₄': 'forestgreen',
+			    'CO₂': 'red',
+			    'O2': 'darkviolet',
+			    'Na': 'yellow',
+			    'K': 'orange',
+			    'SO2': 'hotpink',
+			    'CO': 'gray',
+			    'O3': 'brown'
+			}
+			plt.axvspan(c - sigma, c + sigma, alpha=0.2, label=mol, color=color_map[mol])
 	    '''
 	    plt.scatter(wl, 1-spec, s=3, c='k', label='Noisy')
 	    plt.plot(wl, 1-spec0, c='red', lw=1.5, label='Noiseless')
@@ -104,7 +104,7 @@ def part_1():
 	return display(layout)
 #different molecules
 def part_2(csv):
-	random.seed(1)
+	#random.seed(1)
 	noise_level = 0.003
 	
 	# Convert log-abundance (VMR) → feature height (VMR = (Volume of a given gas) / (Total volume of the gas mixture))
