@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from ipywidgets import FloatLogSlider, HBox, VBox, interactive_output, FloatSlider
 from IPython.display import display, clear_output
 from ipywidgets import Layout
+import random
 
 #simulated spectrum
 def part_1():
